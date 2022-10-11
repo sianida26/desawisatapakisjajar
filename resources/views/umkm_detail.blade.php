@@ -1,6 +1,7 @@
 <?php 
-    $umkms = Illuminate\Support\Facades\DB::table('umkms')->where('name','like','%'.request()->query('q').'%')->get();
+    // $umkms = Illuminate\Support\Facades\DB::table('umkms')->where('name','like','%'.request()->query('q').'%')->get();
     // $umkms = App\Models\Umkm::inRandomOrder()->limit(12)->get();
+    $umkm = App\Models\Umkm::findOrFail(request()->route('id'));
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -66,56 +67,73 @@
     <div>
 
         <h1 class="font-bold text-3xl mt-4 text-center">
-            UMKM Bu Fulan
+            {{ $umkm->name }}
         </h1>
         <div class="h-1 rounded-full bg-ijo w-56 mx-auto"></div>
     </div>
     <section class="px-4 mt-4 md:px-8 py-4 flex flex-col items-center w-full max-w-screen-xl mx-auto md:flex-row md:gap-4 md:flex-start">
         <div class="w-full flex flex-col items-center">
-            <img class="w-full object-cover aspect-[267/176]" src="https://dummyimage.com/267x176/808080/fff" />
-            <a type="button" target="_blank" href="https://wa.me/{{ "6287771018445" }}?text=Halo%20kak%2C%20Saya%20ingin%20bertanya%20tentang%20link%20google%20maps%20alamat%20toko%20Bapak%2FIbu%2C%20terimakasih." class="bg-[#25D366] rounded-md hidden md:flex items-center gap-2 py-3 px-4 text-white font-medium mt-4 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#25D366]">
-                <i class="bi bi-whatsapp"></i>
-                <span class="font-medium roboto">Hubungi pemilik UMKM via Whatsapp</span>
-            </a>
+            <img class="w-full object-contain aspect-[267/176]" src="{{ $umkm->getPhoto() }}" />
+            @if ($umkm->whatsapp)
+                <a type="button" target="_blank" href="https://wa.me/{{ $umkm->whatsapp }}?text=Halo%20kak%2C%20Saya%20ingin%20bertanya%20tentang%20link%20google%20maps%20alamat%20toko%20Bapak%2FIbu%2C%20terimakasih." class="bg-[#25D366] rounded-md flex items-center gap-2 py-3 px-4 text-white font-medium mt-4 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#25D366]">
+                    <i class="bi bi-whatsapp"></i>
+                    <span class="font-medium roboto">Hubungi via Whatsapp</span>
+                </a>
+            @else
+                <button type="button" disabled class="bg-[#25D366] rounded-md flex items-center gap-2 py-3 px-4 text-white font-medium mt-4 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#25D366] opacity-70">
+                    <i class="bi bi-whatsapp"></i>
+                    <span class="font-medium roboto">Hubungi via Whatsapp</span>
+                </button>
+            @endif
         </div>
 
         <table class="w-full mt-4 md:-mt-4 md:ml-8">
             <tbody>
                 <tr>
                     <td class="py-2">Jenis Usaha:</td>
-                    <td>Makanan dan Minuman</td>
+                    <td>{{ $umkm->jenis_usaha }}</td>
                 </tr>
                 <tr>
                     <td class="py-2">Nama Pemilik:</td>
-                    <td>Fulan</td>
+                    <td>{{ $umkm->owner->name }}</td>
                 </tr>
                 <tr>
                     <td class="py-2">Alamat:</td>
-                    <td>Jl. Random RT 3 RW 4</td>
+                    <td>{{ $umkm->address }}</td>
                 </tr>
                 <tr>
-                    <td class="py-2">No. Telepon</td>
-                    <td>08454534545565</td>
+                    <td class="py-2">No. Telepon:</td>
+                    <td>{{ $umkm->phone ? preg_replace('/^62/','0',$umkm->phone) : "-" }} </td>
                 </tr>
                 <tr>
-                    <td class="py-2">No. Whatsapp</td>
-                    <td>08345345345345</td>
+                    <td class="py-2">No. Whatsapp:</td>
+                    <td>{{ $umkm->whatsapp ? preg_replace('/^62/','0',$umkm->whatsapp) : "-" }} </td>
                 </tr>
                 <tr>
-                    <td class="py-2">E-mail</td>
-                    <td>dsjfdskfhdskjh@dskfj.dgdf</td>
+                    <td class="py-2">E-mail:</td>
+                    <td>{{ preg_match('/\@desawisatapakisjajar\.com$/',$umkm->owner->email) ? '-' : $umkm->owner->email }}</td>
                 </tr>
                 <tr>
-                    <td class="py-2">Akun Instagram</td>
-                    <td>@dhfksdjf</td>
+                    <td class="py-2">Akun Instagram:</td>
+                    <td>
+                        @if ($umkm->instagram)
+                            <a href="https://instagram.com/{{ $umkm->instagram }}" target="_blank">@{{ $umkm->instagram }}</a>
+                        @else
+                            -
+                        @endif
+                    </td>
                 </tr>
                 <tr>
-                    <td class="py-2">Website</td>
-                    <td>www.sfhkdfhgk.dsffdg</td>
-                </tr>
-                <tr>
-                    <td class="py-2">Toko Online</td>
-                    <td>dsjgldjdfgdfg</td>
+                    <td class="py-2">Shopee:</td>
+                    <td>
+                        @if($umkm->shopee)
+                            <a href="{{ $umkm->shopee }}" type="button" target="_blank">
+                                Buka di Shopee
+                            </a>
+                        @else
+                            -
+                        @endif
+                    </td>
                 </tr>
             </tbody>
         </table>
