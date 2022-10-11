@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\Route;
 
 Route::view('/','landingPage');
 Route::view('/umkm','umkm');
+Route::view('/umkm/detail/{id}','umkm_detail'); 
 
 Route::view('/admin','admin');
 Route::view('/admin/{any}','admin')->where('any','.*');

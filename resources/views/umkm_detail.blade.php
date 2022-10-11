@@ -19,8 +19,8 @@
     <script src="https://unpkg.com/feather-icons"></script>
 </head>
 <body class="max-w-screen w-screen overflow-x-hidden montserrat">
-    <section class="w-full h-96 px-4 bg-ijo" id="profil">
-        <div class="w-full h-full flex flex-col">
+    <section class="w-full px-4 bg-ijo" id="profil">
+        <div class="w-full flex flex-col">
             <header class="flex items-center justify-between px-4 py-4 text-white">
                 {{-- left --}}
                 <div>
@@ -57,23 +57,19 @@
                     </div>
                 </div>
             </header>
-            <div class="mt-24 flex-center flex-col gap-4 krona-one">
-                <h1 class="text-center text-white font-bold text-4xl">UMKM Desa Pakisjajar</h1>
-                <p class="text-white montserrat">UMKM Maju Terus....</p>
+            <div class="mt-8 flex-center flex-col gap-4 krona-one">
+                <h1 class="text-center text-white font-bold text-2xl">UMKM Bu Fulan</h1>
+                <p class="text-white montserrat">bu fulan</p>
             </div>
         </div>
     </section>
     <section class="px-4 md:px-8 py-12 flex flex-col items-center w-full max-w-screen-xl mx-auto">
-        <form class="relative mx-auto w-full max-w-screen-sm">
-            <span class="absolute left-0 top-0 h-full px-4 w-12 rounded-md bg-ijo flex-center text-white">
-                <i class="bi bi-search"></i>
-            </span>
-            <input name="q" value="{{ request()->query('q') }}" class="w-full py-2 pr-3 pl-14 border-2 border-ijo rounded-md focus:outline-ijo focus:shadow-sm focus:shadow-ijo placeholder:italic" placeholder="Cari UMKM..." />
-        </form>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-8 gap-4 md:gap-8">
-            @foreach($umkms as $umkm)
-                <x-umkm-card :umkm="$umkm" />
-            @endforeach
+        <div class="w-full flex-center">
+            <img class="w-full object-cover aspect-[267/176]" src="https://dummyimage.com/267x176/808080/fff" />
+        </div>
+
+        <div class="w-full">
+            <table></table>
         </div>
     </section>
 </body>
