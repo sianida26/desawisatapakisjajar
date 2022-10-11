@@ -1,0 +1,31 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    .btn {
+        @apply bg-ijo py-3 px-8 rounded-md flex items-center justify-center gap-2 text-slate-100 text-sm focus:outline-none focus:ring-ijo focus:ring-2 focus:ring-offset-2
+    }
+}
+
+@layer utilities {
+    .flex-center {
+        @apply flex items-center justify-center;
+    }
+    
+    .required-sign {
+        @apply after:content-['*'] after:ml-0.5 after:text-red-500;
+    }
+}
+
+.krona-one{
+    font-family: 'Krona One', sans-serif !important;
+}
+
+.montserrat{
+    font-family: 'Montserrat', sans-serif !important;
+}
+
+.roboto{
+    font-family: 'Roboto', sans-serif !important;
+}
