@@ -21,8 +21,9 @@ return new class extends Migration
             $table->string('phone')->nullable();
             $table->string('whatsapp')->nullable();
             $table->string('ig')->nullable();
-            $table->string('olshop')->nullable();
+            $table->string('shopee')->nullable();
             $table->foreignId('owner_id')->constrained('users')->onDelete('cascade');
+            $table->string('filename')->nullable();
             $table->timestamps();
         });
     }
