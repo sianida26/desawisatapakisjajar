@@ -1,0 +1,31 @@
+{
+  "resources/images/cover.jpg": {
+    "file": "assets/cover.ea9b19c2.jpg",
+    "src": "resources/images/cover.jpg"
+  },
+  "resources/js/app.js": {
+    "file": "assets/app.334e7359.js",
+    "src": "resources/js/app.js",
+    "isEntry": true
+  },
+  "resources/js/landingPage.ts": {
+    "file": "assets/landingPage.c7e9af0e.js",
+    "src": "resources/js/landingPage.ts",
+    "isEntry": true
+  },
+  "resources/css/app.css": {
+    "file": "assets/app.ee42b64d.css",
+    "src": "resources/css/app.css",
+    "isEntry": true
+  },
+  "resources/css/bootstrapIcons.css": {
+    "file": "assets/bootstrapIcons.e63685e1.css",
+    "src": "resources/css/bootstrapIcons.css",
+    "isEntry": true
+  },
+  "resources/css/landingPage.css": {
+    "file": "assets/landingPage.63a475ca.css",
+    "src": "resources/css/landingPage.css",
+    "isEntry": true
+  }
+}
