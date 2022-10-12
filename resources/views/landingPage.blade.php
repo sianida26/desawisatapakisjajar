@@ -25,7 +25,7 @@
             <header class="flex items-center justify-between px-4 py-4 text-white">
                 {{-- left --}}
                 <div>
-                    <span class="krona-one">LOGO</span>
+                    <img class="krona-one h-12" src="{{ asset('logo_2.png') }}" />
                 </div>
 
                 {{-- right --}}

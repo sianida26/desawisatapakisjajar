@@ -116,8 +116,8 @@
                 <tr>
                     <td class="py-2">Akun Instagram:</td>
                     <td>
-                        @if ($umkm->instagram)
-                            <a href="https://instagram.com/{{ $umkm->instagram }}" target="_blank">@{{ $umkm->instagram }}</a>
+                        @if ($umkm->ig)
+                            <a href="https://instagram.com/{{ $umkm->ig }}" target="_blank">{{ $umkm->ig }} <i class="bi bi-instagram"></i></i></a>
                         @else
                             -
                         @endif
@@ -127,9 +127,11 @@
                     <td class="py-2">Shopee:</td>
                     <td>
                         @if($umkm->shopee)
-                            <a href="{{ $umkm->shopee }}" type="button" target="_blank">
-                                Buka di Shopee
-                            </a>
+                            <div>
+                                <a href="{{ $umkm->shopee }}" type="button" target="_blank" class="bg-[#EE4D2D] rounded-md flex items-center gap-2 py-3 px-4 text-white font-medium mt-4 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-[#EE4D2D] w-max">
+                                    Buka di Shopee
+                                </a>
+                            </div>
                         @else
                             -
                         @endif

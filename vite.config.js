@@ -8,7 +8,7 @@ export default defineConfig({
             input: [
                 'resources/js/app.js',
                 'resources/js/landingPage.ts',
-                'resources/js/admin/index.tsx',
+                // 'resources/js/admin/index.tsx',
                 'resources/css/app.css', 
                 'resources/css/landingPage.css', 
                 'resources/css/bootstrapIcons.css'
