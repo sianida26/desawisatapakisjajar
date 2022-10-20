@@ -108,7 +108,7 @@
         </div>
         <div class="w-full bg-slate-100 py-16 px-4 md:px-16 md:py-36 flex flex-col items-center krona-one">
             <p class="text-slate-700 text-lg text-center">Mari kita olah sampah organik menjadi sesuatu yang lebih bermanfaat dan bernilai jual</p>
-            <a class="btn mt-4">
+            <a class="btn mt-4" href="/manajemen-sampah">
                 <i class="bi bi-recycle"></i>
                 Yuk olah sampah kita
             </a>
